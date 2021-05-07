@@ -1,0 +1,4 @@
+(sym_lib_table
+  (lib (name CAT28C16A)(type Legacy)(uri "C:/Users/tyjba/Documents/KiCad Symbols/EEPROM/CAT28C16AL-20.lib")(options "")(descr "16K-Bit Parallel EEPROM"))
+  (lib (name SN74LS126AN)(type Legacy)(uri "C:/Users/tyjba/Documents/KiCad Symbols/Buffers/SN74LS126AN.lib")(options "")(descr "Quad Buffer with Tri-state Output"))
+)
