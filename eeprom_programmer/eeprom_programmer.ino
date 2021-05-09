@@ -6,8 +6,6 @@
 #define MEM_WE_ 7
 #define TRI_EN 8
 
-#define DELAY_CYCLES(n) __builtin_avr_delay_cycles(n)
-
 void latchReg() {
     digitalWrite(REG_CLK, LOW);
     digitalWrite(REG_CLK, HIGH);
@@ -68,8 +66,8 @@ void setup() {
     pinMode(TRI_EN, OUTPUT);
 
 
-//    writeMem(1, 0x5);
-//    delay(5000);
+    writeMem(1, 0x1);
+    delay(5000);
     readMem(0);
     delay(5000);
     readMem(1);
