@@ -9,7 +9,8 @@
 #define MAX_COMMAND_LENGTH 256
 #define MAX_ARG_COUNT 10
 
-int read_command(char *buffer, char *argv[]);
+int read_command(char *buffer, char *args[]);
+void handle_command(char *args[], int nargs);
 
 int main(int argc, char *argv[]) {
     char input_buffer[MAX_COMMAND_LENGTH];
@@ -18,11 +19,7 @@ int main(int argc, char *argv[]) {
     printf("EEPROM Serial Interface V%d\n", _VERSION);
     while (true) {
         int len = read_command(input_buffer, args);
-        printf("COUNT: %d\n", len);
-        for (int i = 0; i < len; i++) {
-            printf("ARG%d: %s\n", i, args[i]);
-        }
-        printf("End of args\n");
+        handle_command(args, len);
     }
     
     return EXIT_SUCCESS;
@@ -57,4 +54,17 @@ int read_command(char *buffer, char *args[]) {
         }
     }
     return arg_count;
+}
+
+void handle_command(char *args[], int nargs) {
+    if (nargs > 0) {
+        if (strcmp(args[0], "read") == 0) {
+            printf("Received read cmd.\n");
+
+        } else if (strcmp(args[0], "write") == 0) {
+            printf("Received write cmd.\n");
+        } else {
+            printf("Unknown cmd.\n");
+        }
+    }
 }
